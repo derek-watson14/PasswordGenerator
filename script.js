@@ -1,6 +1,13 @@
-// Assignment Code
 const generateBtn = document.querySelector("#generate");
 const textarea = document.querySelector("textarea");
+
+// * Each charset in an object
+const charSets = {
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  special: " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+  numeric: "0123456789",
+};
 
 // * Get desired password length from user - only accept integers 8-128
 function askLength() {
@@ -22,7 +29,7 @@ function askLength() {
 // * if so, return the set, if not return an empty array
 function checkSet(setKey) {
   return confirm(`Would you like to include ${setKey} characters?`)
-    ? charSets[setKey]
+    ? charSets[setKey].split("")
     : [];
 }
 
